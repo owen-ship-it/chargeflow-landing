@@ -90,7 +90,7 @@ export default function App() {
       <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, padding: "16px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", background: scrolled ? "rgba(6,8,15,0.92)" : "transparent", backdropFilter: scrolled ? "blur(12px)" : "none", borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "none", transition: "all 0.3s" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <div style={{ width: 28, height: 28, borderRadius: 8, background: "linear-gradient(135deg,#1d4ed8,#3b82f6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14 }}>⚡</div>
-          <span style={{ fontFamily: "'Instrument Serif', serif", fontSize: 20, color: "#fff", letterSpacing: "-0.01em" }}>Swyft</span>
+          <span style={{ fontFamily: "'Instrument Serif', serif", fontSize: 28, color: "#fff", letterSpacing: "-0.01em" }}>Swyft</span>
           <span style={{ fontSize: 10, background: "rgba(59,130,246,0.2)", color: "#60a5fa", padding: "2px 8px", borderRadius: 20, letterSpacing: "0.06em", fontWeight: 600 }}>BETA</span>
         </div>
         <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
