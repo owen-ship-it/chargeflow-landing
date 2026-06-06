@@ -113,8 +113,8 @@ export default function App() {
           </div>
 
           <h1 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "clamp(42px,8vw,76px)", fontWeight: 400, lineHeight: 1.08, letterSpacing: "-0.02em", color: "#fff", marginBottom: 24 }}>
-            Stop losing EV leads<br />
-            <span style={{ fontStyle: "italic", color: "#60a5fa" }}>while you sleep</span>
+            Never lose<br />
+            <span style={{ fontStyle: "italic", color: "#60a5fa" }}>another EV lead</span>
           </h1>
 
           <p style={{ fontSize: "clamp(16px,2.5vw,20px)", color: "rgba(232,230,224,0.6)", lineHeight: 1.7, maxWidth: 560, margin: "0 auto 48px", fontWeight: 300 }}>
@@ -139,7 +139,7 @@ export default function App() {
                 <input className="form-input" type="tel" placeholder="Phone number (optional)" value={phone} onChange={(e) => setPhone(e.target.value)} />
                 <button type="submit" className="waitlist-btn">Join the Waitlist →</button>
                 <div style={{ fontSize: 12, color: "rgba(232,230,224,0.3)", textAlign: "center" }}>
-                  {count} EV installers already on the waitlist · No spam, ever
+                  Join a growing list of EV installers getting early access · No spam, ever
                 </div>
               </form>
             ) : (
@@ -252,7 +252,7 @@ export default function App() {
             <span style={{ fontStyle: "italic", color: "#60a5fa" }}>missing leads?</span>
           </h2>
           <p style={{ fontSize: 16, color: "rgba(232,230,224,0.5)", marginBottom: 36, lineHeight: 1.6 }}>
-            Join {count} EV charger installers already on the waitlist for early access.
+            Join a growing list of EV charger installers getting early access.
           </p>
           {!submitted ? (
             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 10, maxWidth: 440, margin: "0 auto" }}>
