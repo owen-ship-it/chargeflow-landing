@@ -48,11 +48,26 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (!name || !email) return;
     setSubmitted(true);
     setCount((c) => c + 1);
+    try {
+      await fetch("https://hook.eu1.make.com/epzrvnb1ra23iqk5j7v6p3emqohomav7", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          phone: phone || "",
+          date_submitted: new Date().toISOString(),
+          status: "New"
+        })
+      });
+    } catch (err) {
+      console.error("Webhook error:", err);
+    }
   }
 
   const fadeUp = (id, delay = 0) => ({
@@ -275,3 +290,4 @@ export default function App() {
     </div>
   );
 }
+
