@@ -161,7 +161,7 @@ export default function App() {
             Every hour you don't respond,<br />
             <span style={{ fontStyle: "italic", color: "#fca5a5" }}>a competitor does</span>
           </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 20 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: 20 }}>
             {[
               { icon: "🌙", text: "Leads enquire at 9pm and nobody responds until morning — by then they've moved on" },
               { icon: "📋", text: "Manually following up leads takes hours every week that could be spent on installations" },
