@@ -1,26 +1,26 @@
 import { useState, useEffect, useRef } from "react";
 
 const FEATURES = [
-  { icon: "⚡", title: "Respond in 60 seconds", desc: "Every lead gets a personalised response within 60 seconds of enquiring — day or night, weekends and bank holidays included." },
-  { icon: "🔁", title: "Automatic follow-up", desc: "If they don't reply, a 7-day follow-up sequence runs automatically. No leads forgotten, no manual chasing." },
-  { icon: "📅", title: "Survey booking on autopilot", desc: "Leads book directly into your calendar through the system. You wake up with surveys already scheduled." },
-  { icon: "🔔", title: "Appointment reminders", desc: "Automated reminders sent 48 and 24 hours before every survey. No-shows reduced dramatically." },
-  { icon: "⭐", title: "Reviews on autopilot", desc: "Post-installation review requests sent automatically. Build your Google reputation without lifting a finger." },
-  { icon: "💬", title: "Smart chatbot for your website", desc: "An intelligent assistant on your website that qualifies leads, answers questions, and books surveys 24/7." },
+  { icon: "⭐", title: "Automatic review requests", desc: "Every completed installation triggers a personalised review request — sent automatically so you never have to remember to ask." },
+  { icon: "📱", title: "SMS and email together", desc: "Every customer gets a review request by both SMS and email, maximising the chance they see it and respond." },
+  { icon: "🔁", title: "Smart follow-up sequence", desc: "If they don't leave a review first time, a gentle follow-up fires automatically. No chasing, no awkward asking." },
+  { icon: "🛑", title: "Stops when they respond", desc: "The moment a customer leaves a review or asks not to be contacted, the sequence stops immediately. Never pushy, always professional." },
+  { icon: "📊", title: "Monthly results report", desc: "A simple report lands in your inbox every month showing reviews sent, reviews received, and your current Google rating." },
+  { icon: "⚡", title: "Part of a complete automation suite", desc: "Google reviews are just the start. Swyft also automates lead response, appointment reminders, and more for EV charger installers." },
 ];
 
 const STATS = [
-  { value: "60s", label: "Average response time" },
-  { value: "24/7", label: "Always on, never misses a lead" },
-  { value: "83%", label: "Reduction in no-shows" },
-  { value: "3–4", label: "Extra surveys booked per month" },
+  { value: "5–8", label: "New reviews per month on average" },
+  { value: "30s", label: "Setup time per job for the installer" },
+  { value: "0", label: "Hours of manual work required from you" },
 ];
 
 const FAQS = [
-  { q: "Do I need a website?", a: "No — the core lead response and follow-up system works through your existing email inbox and phone. The website chatbot is an optional add-on." },
-  { q: "What lead sources does it work with?", a: "Checkatrade, TrustATrader, Google, Yelp, your website contact form, and more. Any source that sends you a notification when a lead arrives." },
-  { q: "How long does setup take?", a: "Most clients are live within 2 weeks of signing up. We handle the entire setup — you just answer a few questions about your business." },
-  { q: "What does it cost?", a: "We're currently onboarding our first cohort of installers at a founding member rate. Join the waitlist to be first in line and lock in early pricing." },
+  { q: "How does it know when a job is complete?", a: "After every installation, you fill in a simple 30-second form on your phone with the customer's name and contact details. That's it — Swyft handles everything else automatically." },
+  { q: "What does the customer receive?", a: "A personalised SMS and email thanking them for choosing your business and asking them to leave a Google review. If they don't respond, a gentle follow-up is sent automatically." },
+  { q: "Will it make us look spammy?", a: "No — the messages are warm, personalised, and branded to your business. Customers see it as great customer service, not spam. The sequence stops the moment they respond or leave a review." },
+  { q: "Do I need a website?", a: "No — Swyft works independently of your website. All you need is a Google Business Profile with a review link, which most installers already have." },
+  { q: "What does it cost?", a: "We're currently onboarding our first group of EV charger installers at a founding member rate. Join the waitlist to lock in early pricing." },
 ];
 
 export default function App() {
@@ -28,7 +28,6 @@ export default function App() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [count, setCount] = useState(32);
   const [scrolled, setScrolled] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
   const [visible, setVisible] = useState({});
@@ -52,18 +51,11 @@ export default function App() {
     e.preventDefault();
     if (!name || !email) return;
     setSubmitted(true);
-    setCount((c) => c + 1);
     try {
       await fetch("https://hook.eu1.make.com/epzrvnb1ra23iqk5j7v6p3emqohomav7", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          phone: phone || "",
-          date_submitted: new Date().toISOString(),
-          status: "New"
-        })
+        body: JSON.stringify({ name, email, phone: phone || "", date_submitted: new Date().toISOString(), status: "New" })
       });
     } catch (err) {
       console.error("Webhook error:", err);
@@ -81,11 +73,8 @@ export default function App() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        ::selection { background: rgba(59,130,246,0.3); }
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-thumb { background: rgba(59,130,246,0.3); border-radius: 2px; }
-        .nav-link { color: rgba(232,230,224,0.5); font-size: 14px; cursor: pointer; text-decoration: none; transition: color 0.2s; }
-        .nav-link:hover { color: #e8e6e0; }
         .form-input { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 13px 16px; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; transition: border-color 0.2s; }
         .form-input:focus { border-color: rgba(59,130,246,0.5); }
         .form-input::placeholder { color: rgba(255,255,255,0.3); }
@@ -99,16 +88,20 @@ export default function App() {
         @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
         .glow-orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
         .nav-waitlist-btn { background: linear-gradient(135deg,#1d4ed8,#3b82f6); border: none; border-radius: 8px; padding: 8px 18px; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; }
+        .nav-link { color: rgba(232,230,224,0.5); font-size: 14px; cursor: pointer; text-decoration: none; transition: color 0.2s; }
+        .nav-link:hover { color: #e8e6e0; }
       `}</style>
 
       {/* Nav */}
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, padding: "16px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", position: "relative", background: scrolled ? "rgba(6,8,15,0.92)" : "transparent", backdropFilter: scrolled ? "blur(12px)" : "none", borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "none", transition: "all 0.3s" }}>
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, padding: "16px 24px", display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", background: scrolled ? "rgba(6,8,15,0.92)" : "transparent", backdropFilter: scrolled ? "blur(12px)" : "none", borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "none", transition: "all 0.3s" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <div style={{ width: 28, height: 28, borderRadius: 8, background: "linear-gradient(135deg,#1d4ed8,#3b82f6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14 }}>⚡</div>
-          <span style={{ fontFamily: "'Instrument Serif', serif", fontSize: 28, color: "#fff", letterSpacing: "-0.01em" }}>Swyft</span>
           <span style={{ fontSize: 10, background: "rgba(59,130,246,0.2)", color: "#60a5fa", padding: "2px 8px", borderRadius: 20, letterSpacing: "0.06em", fontWeight: 600 }}>BETA</span>
         </div>
-        <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
+        <div style={{ textAlign: "center" }}>
+          <span style={{ fontFamily: "'Instrument Serif', serif", fontSize: 34, color: "#fff", letterSpacing: "-0.01em" }}>Swyft</span>
+        </div>
+        <div style={{ display: "flex", gap: 24, alignItems: "center", justifyContent: "flex-end" }}>
           <a className="nav-link" href="#features">Features</a>
           <a className="nav-link" href="#faq">FAQ</a>
           <button className="nav-waitlist-btn" onClick={() => document.getElementById("waitlist-form").scrollIntoView({ behavior: "smooth" })}>Join Waitlist</button>
@@ -124,16 +117,16 @@ export default function App() {
         <div style={{ maxWidth: 760, width: "100%", textAlign: "center", position: "relative" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.2)", borderRadius: 20, padding: "6px 16px", marginBottom: 32, fontSize: 13, color: "rgba(134,239,172,0.9)" }}>
             <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#22c55e", display: "inline-block", animation: "pulse 2s infinite" }} />
-            Now accepting early access applications
+            Now accepting early access applications for EV charger installers
           </div>
 
           <h1 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "clamp(42px,8vw,76px)", fontWeight: 400, lineHeight: 1.08, letterSpacing: "-0.02em", color: "#fff", marginBottom: 24 }}>
-            Never lose<br />
-            <span style={{ fontStyle: "italic", color: "#60a5fa" }}>another EV lead</span>
+            More Google reviews.<br />
+            <span style={{ fontStyle: "italic", color: "#60a5fa" }}>Zero extra effort.</span>
           </h1>
 
           <p style={{ fontSize: "clamp(16px,2.5vw,20px)", color: "rgba(232,230,224,0.6)", lineHeight: 1.7, maxWidth: 560, margin: "0 auto 48px", fontWeight: 300 }}>
-            A system built for EV charger installers that responds to every lead within 60 seconds, follows up automatically, and books surveys into your calendar — 24 hours a day, 7 days a week.
+            Swyft automatically asks every EV charger installation customer for a Google review — by SMS and email — so you build your reputation on autopilot while you focus on the job.
           </p>
 
           <div style={{ display: "flex", justifyContent: "center", gap: "clamp(16px,4vw,48px)", marginBottom: 48, flexWrap: "wrap" }}>
@@ -145,7 +138,6 @@ export default function App() {
             ))}
           </div>
 
-          {/* Waitlist form */}
           <div id="waitlist-form" style={{ maxWidth: 440, margin: "0 auto" }}>
             {!submitted ? (
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -161,7 +153,7 @@ export default function App() {
               <div style={{ background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.2)", borderRadius: 14, padding: "24px 32px" }}>
                 <div style={{ fontSize: 24, marginBottom: 8 }}>🎉</div>
                 <div style={{ fontSize: 18, fontWeight: 600, color: "#fff", marginBottom: 6 }}>You're on the list</div>
-                <div style={{ fontSize: 14, color: "rgba(232,230,224,0.5)", lineHeight: 1.6 }}>We'll be in touch shortly with early access details. You're #{count} on the waitlist.</div>
+                <div style={{ fontSize: 14, color: "rgba(232,230,224,0.5)", lineHeight: 1.6 }}>We'll be in touch shortly with early access details.</div>
               </div>
             )}
           </div>
@@ -173,15 +165,15 @@ export default function App() {
         <div data-id="problem" style={{ ...fadeUp("problem"), background: "rgba(239,68,68,0.05)", border: "1px solid rgba(239,68,68,0.15)", borderRadius: 20, padding: "40px 36px" }}>
           <div style={{ fontSize: 13, color: "rgba(252,165,165,0.8)", letterSpacing: "0.08em", fontWeight: 600, marginBottom: 16 }}>THE PROBLEM</div>
           <h2 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "clamp(26px,4vw,38px)", color: "#fff", marginBottom: 20, lineHeight: 1.2 }}>
-            Every hour you don't respond,<br />
-            <span style={{ fontStyle: "italic", color: "#fca5a5" }}>a competitor does</span>
+            You do great work.<br />
+            <span style={{ fontStyle: "italic", color: "#fca5a5" }}>But nobody knows it.</span>
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: 20 }}>
             {[
-              { icon: "🌙", text: "Leads enquire at 9pm and nobody responds until morning — by then they've moved on" },
-              { icon: "📋", text: "Manually following up leads takes hours every week that could be spent on installations" },
-              { icon: "📉", text: "No-shows waste your engineers' time and cost you money on every wasted journey" },
-              { icon: "⭐", text: "You do great work but reviews don't come in unless someone chases — and nobody does" },
+              { icon: "😬", text: "Asking customers for reviews feels awkward — so most installers never do it consistently" },
+              { icon: "📉", text: "Without a steady stream of reviews your Google ranking drops and competitors get the calls" },
+              { icon: "⏰", text: "By the time you remember to follow up, the customer has moved on and the moment is gone" },
+              { icon: "📋", text: "You're too busy on the tools to spend time chasing reviews manually after every job" },
             ].map((p, i) => (
               <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                 <span style={{ fontSize: 20, flexShrink: 0 }}>{p.icon}</span>
@@ -195,10 +187,10 @@ export default function App() {
       {/* Features */}
       <section id="features" style={{ padding: "80px 24px", maxWidth: 900, margin: "0 auto" }}>
         <div data-id="feat-title" style={{ ...fadeUp("feat-title"), textAlign: "center", marginBottom: 48 }}>
-          <div style={{ fontSize: 13, color: "rgba(96,165,250,0.8)", letterSpacing: "0.08em", fontWeight: 600, marginBottom: 12 }}>WHAT IT DOES</div>
+          <div style={{ fontSize: 13, color: "rgba(96,165,250,0.8)", letterSpacing: "0.08em", fontWeight: 600, marginBottom: 12 }}>WHAT SWYFT DOES</div>
           <h2 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "clamp(28px,4vw,44px)", color: "#fff", lineHeight: 1.15 }}>
-            Everything that happens<br />
-            <span style={{ fontStyle: "italic", color: "#60a5fa" }}>after a lead arrives</span>
+            Reviews on autopilot.<br />
+            <span style={{ fontStyle: "italic", color: "#60a5fa" }}>You just do the installs.</span>
           </h2>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: 14 }}>
@@ -216,14 +208,14 @@ export default function App() {
       <section style={{ padding: "80px 24px", maxWidth: 700, margin: "0 auto" }}>
         <div data-id="how-title" style={{ ...fadeUp("how-title"), textAlign: "center", marginBottom: 48 }}>
           <div style={{ fontSize: 13, color: "rgba(96,165,250,0.8)", letterSpacing: "0.08em", fontWeight: 600, marginBottom: 12 }}>HOW IT WORKS</div>
-          <h2 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "clamp(28px,4vw,44px)", color: "#fff" }}>Up and running in 2 weeks</h2>
+          <h2 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "clamp(28px,4vw,44px)", color: "#fff" }}>Up and running in 48 hours</h2>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
           {[
-            { n: "01", title: "Join the waitlist", desc: "Tell us about your business — location, lead sources, and how many installations you do a month." },
-            { n: "02", title: "We set everything up", desc: "We connect your lead sources, configure your responses, and integrate with your calendar. You don't touch the technology." },
-            { n: "03", title: "Go live", desc: "Every lead gets an instant response. Your dashboard shows you everything in real time." },
-            { n: "04", title: "Watch the surveys fill up", desc: "Leads that used to go cold overnight now book directly into your diary. No chasing, no missed calls, no no-shows." },
+            { n: "01", title: "Join the waitlist", desc: "Tell us about your business and we'll be in touch within 24 hours to get you set up." },
+            { n: "02", title: "We connect everything", desc: "We set up your review request system using your Google Business Profile link. You don't touch the technology." },
+            { n: "03", title: "Fill in a 30-second form after each job", desc: "After every installation, fill in a simple form on your phone with the customer's name and contact details. That's your only job." },
+            { n: "04", title: "Reviews start coming in", desc: "Swyft sends personalised review requests by SMS and email automatically. Reviews build up every month without you lifting a finger." },
           ].map((s, i) => (
             <div key={i} data-id={`step-${i}`} style={{ ...fadeUp(`step-${i}`, i * 0.1), display: "flex", gap: 24, padding: "28px 0", borderBottom: i < 3 ? "1px solid rgba(255,255,255,0.06)" : "none" }}>
               <div style={{ fontFamily: "'Instrument Serif', serif", fontSize: 36, color: "rgba(59,130,246,0.3)", flexShrink: 0, lineHeight: 1, width: 48 }}>{s.n}</div>
@@ -263,11 +255,11 @@ export default function App() {
       <section style={{ padding: "80px 24px 120px", textAlign: "center" }}>
         <div data-id="cta" style={{ ...fadeUp("cta"), maxWidth: 600, margin: "0 auto" }}>
           <h2 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "clamp(32px,5vw,54px)", color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
-            Ready to stop<br />
-            <span style={{ fontStyle: "italic", color: "#60a5fa" }}>missing leads?</span>
+            Ready to start getting<br />
+            <span style={{ fontStyle: "italic", color: "#60a5fa" }}>more reviews?</span>
           </h2>
           <p style={{ fontSize: 16, color: "rgba(232,230,224,0.5)", marginBottom: 36, lineHeight: 1.6 }}>
-            Join a growing list of EV charger installers getting early access.
+            Join a growing list of EV charger installers getting early access to Swyft.
           </p>
           {!submitted ? (
             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 10, maxWidth: 440, margin: "0 auto" }}>
@@ -290,4 +282,3 @@ export default function App() {
     </div>
   );
 }
-
