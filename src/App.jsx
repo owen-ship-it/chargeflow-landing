@@ -93,14 +93,12 @@ export default function App() {
       `}</style>
 
       {/* Nav */}
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, padding: "16px 24px", display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", background: scrolled ? "rgba(6,8,15,0.92)" : "transparent", backdropFilter: scrolled ? "blur(12px)" : "none", borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "none", transition: "all 0.3s" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, padding: "16px 24px", display: "flex", alignItems: "center", background: scrolled ? "rgba(6,8,15,0.92)" : "transparent", backdropFilter: scrolled ? "blur(12px)" : "none", borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "none", transition: "all 0.3s" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ width: 28, height: 28, borderRadius: 8, background: "linear-gradient(135deg,#1d4ed8,#3b82f6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14 }}>⚡</div>
-          <span style={{ fontSize: 10, background: "rgba(59,130,246,0.2)", color: "#60a5fa", padding: "2px 8px", borderRadius: 20, letterSpacing: "0.06em", fontWeight: 600 }}>BETA</span>
+          <span style={{ fontFamily: "'Instrument Serif', serif", fontSize: 30, color: "#fff", letterSpacing: "-0.01em" }}>Swyft</span>
         </div>
-        <div style={{ textAlign: "center" }}>
-          <span style={{ fontFamily: "'Instrument Serif', serif", fontSize: 34, color: "#fff", letterSpacing: "-0.01em" }}>Swyft</span>
-        </div>
+        <div style={{ flex: 1 }} />
         <div style={{ display: "flex", gap: 24, alignItems: "center", justifyContent: "flex-end" }}>
           <a className="nav-link" href="#features">Features</a>
           <a className="nav-link" href="#faq">FAQ</a>
