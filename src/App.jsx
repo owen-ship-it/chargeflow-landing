@@ -82,7 +82,7 @@ export default function App() {
       {/* Nav */}
       <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, padding: "16px 24px", display: "flex", alignItems: "center", background: scrolled ? "rgba(6,8,15,0.92)" : "transparent", backdropFilter: scrolled ? "blur(12px)" : "none", borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "none", transition: "all 0.3s" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <img src="/logo.png" alt="Swyft" style={{ width: 28, height: 28, borderRadius: 8, objectFit: "cover" }} />
+          <img src="/logo.jpg" alt="Swyft" style={{ width: 28, height: 28, borderRadius: 8, objectFit: "cover" }} />
           <span style={{ fontFamily: "'Instrument Serif', serif", fontSize: 30, color: "#fff", letterSpacing: "-0.01em" }}>Swyft</span>
         </div>
         <div style={{ flex: 1 }} />
