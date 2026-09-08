@@ -3,9 +3,6 @@ const FEATURES = [
   { icon: "📞", title: "Answers every call instantly", desc: "Swyft picks up in under a ring, any time of day, sounding like a real member of your team — not a voicemail box." },
   { icon: "📅", title: "Books the quote into your diary", desc: "Checks your real availability and confirms a slot with the customer there and then, straight into your calendar." },
   { icon: "💬", title: "Job details sent to your phone", desc: "A text and email land the moment a call ends — name, number, address, and what the job is — before you're off the ladder." },
-  { icon: "🔁", title: "Automatic follow-up on quotes", desc: "If a quote goes quiet, a gentle follow-up fires automatically. No chasing, no jobs left to go cold." },
-  { icon: "🛑", title: "Knows when to stop", desc: "The moment a job's booked or a customer asks not to be contacted, follow-ups stop immediately. Never pushy, always professional." },
-  { icon: "⚡", title: "Part of a complete automation suite", desc: "Lead response is just the start. Swyft also automates review requests, appointment reminders, and more for electricians." },
 ];
 const STATS = [
   { value: "24/7", label: "Every call answered, day or night" },
@@ -186,13 +183,12 @@ export default function App() {
       {/* How it works */}
       <section style={{ padding: "80px 24px", maxWidth: 700, margin: "0 auto" }}>
         <div data-id="how-title" style={{ ...fadeUp("how-title"), textAlign: "center", marginBottom: 48 }}>
-          <div style={{ fontSize: 13, color: "rgba(96,165,250,0.8)", letterSpacing: "0.08em", fontWeight: 600, marginBottom: 12 }}>HOW IT WORKS</div>
-          <h2 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "clamp(28px,4vw,44px)", color: "#fff" }}>Up and running in 48 hours</h2>
+          <h2 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "clamp(28px,4vw,44px)", color: "#fff" }}>How it works</h2>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
           {[
             { n: "01", title: "Join the waitlist", desc: "Tell us about your business and we'll be in touch within 24 hours to get you set up." },
-            { n: "02", title: "We connect your number", desc: "Swyft is set up to answer your business line and sync with your calendar. You don't touch any tech." },
+            { n: "02", title: "We connect your number", desc: "Swyft is set up to answer your business line and sync with your calendar." },
             { n: "03", title: "Every call gets answered", desc: "Swyft picks up, takes the customer's details, and books a quote visit straight into your diary." },
             { n: "04", title: "You just show up", desc: "Job details land by text and email before you're off the ladder. No missed calls, no admin." },
           ].map((s, i) => (
