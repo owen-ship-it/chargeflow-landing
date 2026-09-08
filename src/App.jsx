@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 const FEATURES = [
   { icon: "📞", title: "Answers every call", desc: "Swyft picks up your call, any time of day, sounding like a real member of your team — not a voicemail box." },
-  { icon: "📅", title: "Books the quote into your diary", desc: "Checks your real availability and confirms a slot with the customer there and then, straight into your calendar." },
+  { icon: "📅", title: "Books straight into your diary", desc: "Checks your real availability and confirms a slot with the customer there and then, straight into your calendar." },
   { icon: "💬", title: "Job details sent to your phone", desc: "A text and email land the moment a call ends — name, number, address, and what the job is — before you're off the ladder." },
 ];
 const STATS = [
