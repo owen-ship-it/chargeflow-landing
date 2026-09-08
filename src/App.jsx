@@ -107,7 +107,7 @@ export default function App() {
             <span style={{ fontStyle: "italic", color: "#60a5fa" }}>Zero missed jobs.</span>
           </h1>
           <p style={{ fontSize: "clamp(16px,2.5vw,20px)", color: "rgba(232,230,224,0.6)", lineHeight: 1.7, maxWidth: 560, margin: "0 auto 48px", fontWeight: 300 }}>
-            Swyft answers every incoming call instantly, books the quote visit straight into your calendar, and texts you the details — so you never lose a job to voicemail again.
+            Swyft answers every incoming call, books the quote visit straight into your calendar, and texts you the details — so you never lose a job to voicemail again.
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: "clamp(16px,4vw,48px)", marginBottom: 48, flexWrap: "wrap" }}>
             {STATS.map((s, i) => (
