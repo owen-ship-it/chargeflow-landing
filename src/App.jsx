@@ -42,7 +42,7 @@ export default function App() {
     if (!name || !email) return;
     setSubmitted(true);
     try {
-      await fetch("https://hook.eu1.make.com/epzrvnb1ra23iqk5j7v6p3emqohomav7", {
+      await fetch("https://hook.eu2.make.com/3x3s8k7ypn3f43yhbqkmtghu2rr27adj", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, phone: phone || "", date_submitted: new Date().toISOString(), status: "New" })
