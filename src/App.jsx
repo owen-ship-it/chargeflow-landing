@@ -123,7 +123,7 @@ export default function App() {
                 <input className="form-input" type="text" placeholder="Your name *" value={name} onChange={(e) => setName(e.target.value)} required />
                 <input className="form-input" type="email" placeholder="Email address *" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 <input className="form-input" type="tel" placeholder="Phone number (optional)" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                <button type="submit" className="waitlist-btn">Get in touch →</button>
+                <button type="submit" className="waitlist-btn">Get in touch </button>
                 <div style={{ fontSize: 12, color: "rgba(232,230,224,0.3)", textAlign: "center" }}>
                   Now onboarding UK electricians · No spam, ever
                 </div>
@@ -187,7 +187,7 @@ export default function App() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
           {[
-            { n: "01", title: "Join the waitlist", desc: "Tell us about your business and we'll be in touch within 24 hours to get you set up." },
+            { n: "01", title: "Get in touch", desc: "Tell us about your business and we'll be in touch within 24 hours to get you set up." },
             { n: "02", title: "We connect your number", desc: "Swyft is set up to answer your business line and sync with your calendar." },
             { n: "03", title: "Every call gets answered", desc: "Swyft picks up, takes the customer's details, and books a quote visit straight into your diary." },
             { n: "04", title: "You just show up", desc: "Job details land by text and email before you're off the ladder. No missed calls, no admin." },
@@ -239,7 +239,7 @@ export default function App() {
               <input className="form-input" type="text" placeholder="Your name *" value={name} onChange={(e) => setName(e.target.value)} required />
               <input className="form-input" type="email" placeholder="Email address *" value={email} onChange={(e) => setEmail(e.target.value)} required />
               <input className="form-input" type="tel" placeholder="Phone number (optional)" value={phone} onChange={(e) => setPhone(e.target.value)} />
-              <button type="submit" className="waitlist-btn">Join Now →</button>
+              <button type="submit" className="waitlist-btn">Get in touch →</button>
             </form>
           ) : (
             <div style={{ fontSize: 16, color: "#22c55e", fontWeight: 500 }}>✓ You're on the list — we'll be in touch soon.</div>
