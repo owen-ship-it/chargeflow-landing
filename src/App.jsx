@@ -100,7 +100,7 @@ export default function App() {
         <div style={{ maxWidth: 760, width: "100%", textAlign: "center", position: "relative" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.2)", borderRadius: 20, padding: "6px 16px", marginBottom: 32, fontSize: 13, color: "rgba(134,239,172,0.9)" }}>
             <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#22c55e", display: "inline-block", animation: "pulse 2s infinite" }} />
-            Now accepting early access applications for UK electricians
+            Now onboarding UK electricians
           </div>
           <h1 style={{ fontFamily: "'Instrument Serif', serif", fontSize: "clamp(42px,8vw,76px)", fontWeight: 400, lineHeight: 1.08, letterSpacing: "-0.02em", color: "#fff", marginBottom: 24 }}>
             Every call answered.<br />
@@ -125,14 +125,14 @@ export default function App() {
                 <input className="form-input" type="tel" placeholder="Phone number (optional)" value={phone} onChange={(e) => setPhone(e.target.value)} />
                 <button type="submit" className="waitlist-btn">Join the Waitlist →</button>
                 <div style={{ fontSize: 12, color: "rgba(232,230,224,0.3)", textAlign: "center" }}>
-                  Join a growing list of UK electricians getting early access · No spam, ever
+                  Now onboarding UK electricians · No spam, ever
                 </div>
               </form>
             ) : (
               <div style={{ background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.2)", borderRadius: 14, padding: "24px 32px" }}>
                 <div style={{ fontSize: 24, marginBottom: 8 }}>🎉</div>
                 <div style={{ fontSize: 18, fontWeight: 600, color: "#fff", marginBottom: 6 }}>You're on the list</div>
-                <div style={{ fontSize: 14, color: "rgba(232,230,224,0.5)", lineHeight: 1.6 }}>We'll be in touch shortly with early access details.</div>
+                <div style={{ fontSize: 14, color: "rgba(232,230,224,0.5)", lineHeight: 1.6 }}>We'll be in touch shortly with details.</div>
               </div>
             )}
           </div>
@@ -232,7 +232,7 @@ export default function App() {
             <span style={{ fontStyle: "italic", color: "#60a5fa" }}>jobs to voicemail?</span>
           </h2>
           <p style={{ fontSize: 16, color: "rgba(232,230,224,0.5)", marginBottom: 36, lineHeight: 1.6 }}>
-            Join a growing list of UK electricians getting early access to Swyft.
+            Onboarding UK electricians now.
           </p>
           {!submitted ? (
             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 10, maxWidth: 440, margin: "0 auto" }}>
