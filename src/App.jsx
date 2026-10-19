@@ -14,7 +14,7 @@ const FAQS = [
   { q: "What does the customer hear?", a: "A natural-sounding receptionist who takes their details and books them in — not a robotic phone menu." },
   { q: "Will it sound robotic?", a: "No — Swyft is built to sound like a real member of your team, branded to your business. Customers don't realise it's automated." },
   { q: "Do I need special phone equipment?", a: "No — Swyft works with your existing business number. No new hardware, no app for your customers to download." },
-  { q: "What does it cost?", a: "We're currently onboarding our first group of UK electricians at a founding member rate. Join the waitlist to lock in early pricing." },
+  { q: "What does it cost?", a: "We're currently onboarding UK electricians at £129 per month." },
 ];
 export default function App() {
   const [name, setName] = useState("");
@@ -123,7 +123,7 @@ export default function App() {
                 <input className="form-input" type="text" placeholder="Your name *" value={name} onChange={(e) => setName(e.target.value)} required />
                 <input className="form-input" type="email" placeholder="Email address *" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 <input className="form-input" type="tel" placeholder="Phone number (optional)" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                <button type="submit" className="waitlist-btn">Join the Waitlist →</button>
+                <button type="submit" className="waitlist-btn">Get in touch →</button>
                 <div style={{ fontSize: 12, color: "rgba(232,230,224,0.3)", textAlign: "center" }}>
                   Now onboarding UK electricians · No spam, ever
                 </div>
